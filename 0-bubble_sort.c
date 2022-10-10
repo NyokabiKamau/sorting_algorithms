@@ -11,22 +11,20 @@
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t a, b;
+	size_t i, j;
 	int temp = 0;
-	int *arrayB = malloc(size * sizeof(int));
+	int *array = malloc(size * sizeof(int));
 
-	arrayB = array;
-
-	for (a = 1; a < size; a++)
+	for (i = 1; i < size; i++)
 	{
-		for (b = 0; b < size - 1; b++)
+		for (j = 0; j < size - 1; j++)
 		{
-			if (arrayB[b] > arrayB[b + 1])
+			if (array[j] > array[j + 1])
 			{
-				temp = arrayB[b];
-				arrayB[b] = arrayB[b + 1];
-				arrayB[b + 1] = temp;
-				print_array(arrayB, size);
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				print_array(array, size);
 			}
 		}
 	}
