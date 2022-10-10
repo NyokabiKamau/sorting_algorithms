@@ -3,7 +3,8 @@
 #include "sort.h"
 
 /**
- * bubble_sort - sorts an array of integers in ascending order using the Bubble sort algorithm
+ * bubble_sort - sorts an array of integers in ascending order
+ * using the Bubble sort algorithm
  * @array: array of integer
  * @size: size of the array
  */
