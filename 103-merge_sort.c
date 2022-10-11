@@ -72,14 +72,14 @@ void merge(size_t lo, size_t mi, size_t hi, int *dest, int *src)
  */
 void merge_partition(size_t lo, size_t hi, int *array, int *base)
 {
-	size_t mi = 0;
+	size_t min = 0;
 
 	if (hi - lo < 2)
 		return;
-	mi = (lo + hi) / 2;
-	merge_partition(lo, mi, array, b);
-	merge_partition(mi, hi, array, b);
-	merge(lo, mi, hi, array, b);
-	for (mi = lo; mi < hi; mi++)
-		b[mi] = array[mi];
+	min = (lo + hi) / 2;
+	merge_partition(lo, min, array, b);
+	merge_partition(min, hi, array, b);
+	merge(lo, min, hi, array, b);
+	for (min = lo; min < hi; min++)
+		base[min] = array[min];
 }
