@@ -18,7 +18,7 @@ void merge_sort(int *array, size_t size)
 	b = malloc(sizeof(int) * size);
 	if (b == NULL)
 		return;
-	for (i = 0; i < size; i++)
+	for (; i < size; i++)
 		b[i] = array[i];
 	merge_partition(0, size, array, b);
 	free(b);
@@ -45,7 +45,7 @@ void merge(size_t lo, size_t mi, size_t hi, int *dest, int *src)
 	i = lo;
 	j = mi;
 	k = lo;
-		for (k - 0; k < hi; k++)
+		for (k = 0; k < hi; k++)
 		{
 			if (i < mi && (j >= hi || src[i] <= src[j]))
 			{
@@ -72,14 +72,14 @@ void merge(size_t lo, size_t mi, size_t hi, int *dest, int *src)
  */
 void merge_partition(size_t lo, size_t hi, int *array, int *base)
 {
-	size_t min = 0;
+	size_t mi = 0;
 
 	if (hi - lo < 2)
 		return;
-	min = (lo + hi) / 2;
-	merge_partition(lo, min, array, base);
-	merge_partition(min, hi, array, base);
-	merge(lo, min, hi, array, base);
-	for (min = lo; min < hi; min++)
-		base[min] = array[min];
+	mi = (lo + hi) / 2;
+	merge_partition(lo, mi, array, base);
+	merge_partition(mi, hi, array, base);
+	merge(lo, mi, hi, array, base);
+	for (mi = lo; mi < hi; mi++)
+		base[mi] = array[mi];
 }
