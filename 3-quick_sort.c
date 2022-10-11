@@ -1,73 +1,75 @@
-nclude "sort.h"
+#include "sort.h"
 
 /**
- * quick_sort - function that sorts an array of integers
- *              in ascending order using the Quick sort algorithm
- * @array: array
- * @size: array's size
- * Return: void
+ * quick_sort - sorts an array with the Quicksort algorithm
+ * @array: array of ints to sort
+ * @size: size of the array
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
+	if (size < 2)
 		return;
 
-	quick_s(array, 0, size - 1, size);
+	quick_recursion(array, 0, (int)size - 1, size);
 }
 
 /**
- * partition - partition
- * @array: array
- * @lo: lower
- * @hi: higher
- * @size: array's size
- * Return: i
+ * quick_recursion - helper function for Quicksort
+ * @array: array to sort
+ * @left: index of the left element
+ * @right: index of the right element
+ * @size: size of the array
  */
-int partition(int *array, int lo, int hi, size_t size)
+void quick_recursion(int *array, int left, int right, size_t size)
 {
-	int i = lo - 1, j = lo;
-	int pivot = array[hi], aux = 0;
+	int piv;
 
-	for (; j < hi; j++)
+	if (left < right)
 	{
-		if (array[j] < pivot)
+		piv = partition(array, left, right, size);
+		quick_recursion(array, left, piv - 1, size);
+		quick_recursion(array, piv + 1, right, size);
+	}
+}
+
+/**
+ * partition - gives a piv index for Quicksort
+ * @array: array to find the piv in
+ * @left: index of the left element
+ * @right: index of the right element
+ * @size: size of the array
+ *
+ * Return: the index of the piv element
+ */
+int partition(int *array, int left, int right, size_t size)
+{
+	int tmp, i;
+	int j;
+
+	i = left - 1;
+
+	for (j = left; j < right; j++)
+	{
+		if (array[j] < array[right])
 		{
 			i++;
-			if (array[i] != array[j])
+			if (i != j)
 			{
-				aux = array[i];
+				tmp = array[i];
 				array[i] = array[j];
-				array[j] = aux;
+				array[j] = tmp;
 				print_array(array, size);
 			}
 		}
 	}
-	if (array[i + 1] != array[hi])
+
+	if (array[right] < array[i + 1])
 	{
-		aux = array[i + 1];
-		array[i + 1] = array[hi];
-		array[hi] = aux;
+		tmp = array[i + 1];
+		array[i + 1] = array[right];
+		array[right] = tmp;
 		print_array(array, size);
 	}
+
 	return (i + 1);
-}
-
-/**
- * quick_s - quick sort
- * @array: given array
- * @lo: lower
- * @hi:higher
- * @size: array's size
- * Return: void
- */
-void quick_s(int *array, int lo, int hi, size_t size)
-{
-	int pivot;
-
-	if (lo < hi)
-	{
-		pivot = partition(array, lo, hi, size);
-		quick_s(array, lo, pivot - 1, size);
-		quick_s(array, pivot + 1, hi, size);
-	}
 }
