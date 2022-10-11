@@ -24,4 +24,4 @@ A list/array does not need to be sorted if its size is less than 2.
 
 AUTHORS
 Nyokabi Kamau - NyokabiKamau
-Sharon Warukira - shrn-kira
+Sharon Warukira - shrn-kira 
