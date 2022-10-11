@@ -11,17 +11,17 @@
 void merge_sort(int *array, size_t size)
 {
 	size_t i = 0;
-	int *b = NULL;
+	int *base = NULL;
 
 	if (array == NULL || size < 2)
 		return;
-	b = malloc(sizeof(int) * size);
-	if (b == NULL)
+	base = malloc(sizeof(int) * size);
+	if (base == NULL)
 		return;
 	for (; i < size; i++)
-		b[i] = array[i];
-	merge_partition(0, size, array, b);
-	free(b);
+		base[i] = array[i];
+	merge_partition(0, size, array, base);
+	free(base);
 }
 
 /**
@@ -45,7 +45,7 @@ void merge(size_t lo, size_t mi, size_t hi, int *dest, int *src)
 	i = lo;
 	j = mi;
 	k = lo;
-		for (k = 0; k < hi; k++)
+		for (; k < hi; k++)
 		{
 			if (i < mi && (j >= hi || src[i] <= src[j]))
 			{
