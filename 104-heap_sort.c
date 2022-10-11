@@ -19,7 +19,7 @@ void swap_root(int *array, size_t root, size_t hi, size_t size)
 		min = lower + 1;
 		if (array[temp] < array[lower])
 			temp = lower;
-		if (min <= higher && array[temp] < array[min])
+		if (min <= hi && array[temp] < array[min])
 			temp = min;
 		if (temp == root)
 			return;
