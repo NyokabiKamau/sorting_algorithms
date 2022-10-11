@@ -45,7 +45,7 @@ void merge(size_t lo, size_t mi, size_t hi, int *dest, int *src)
 	i = lo;
 	j = mi;
 	k = lo;
-		for (; k < hi; k++)
+		for (k - 0; k < hi; k++)
 		{
 			if (i < mi && (j >= hi || src[i] <= src[j]))
 			{
