@@ -77,9 +77,9 @@ void merge_partition(size_t lo, size_t hi, int *array, int *base)
 	if (hi - lo < 2)
 		return;
 	min = (lo + hi) / 2;
-	merge_partition(lo, min, array, b);
-	merge_partition(min, hi, array, b);
-	merge(lo, min, hi, array, b);
+	merge_partition(lo, min, array, base);
+	merge_partition(min, hi, array, base);
+	merge(lo, min, hi, array, base);
 	for (min = lo; min < hi; min++)
 		base[min] = array[min];
 }
