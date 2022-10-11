@@ -81,5 +81,5 @@ void merge_partition(size_t lo, size_t hi, int *array, int *base)
 	merge_partition(mi, hi, array, base);
 	merge(lo, mi, hi, array, base);
 	for (mi = lo; mi < hi; mi++)
-		b[mi] = array[mi];
+		base[mi] = array[mi];
 }
