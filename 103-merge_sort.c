@@ -16,7 +16,7 @@ void merge_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 	base = malloc(sizeof(int) * size);
-	if (base == NULL)
+	if (b == NULL)
 		return;
 	for (i = 0; i < size; i++)
 		b[i] = array[i];
